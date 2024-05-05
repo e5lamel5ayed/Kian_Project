@@ -1,6 +1,6 @@
 <?php 
 namespace App\Library;
-classKIANHelpers {
+class ulearnHelpers {
 
   public static function HumanFileSize($size,$unit="") {
     if( (!$unit && $size >= 1<<30) || $unit == "GB")

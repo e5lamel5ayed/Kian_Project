@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 float-md-right col-sm-6 float-sm-right col-6">
                             <div class="cv-category-detail cv-enroll float-lg-right float-md-right float-sm-right">
-                                <a href="javascript::void(0);" class="btn btn-KIAN-cview mt-1" data-toggle="modal" data-target="#rateModal">RATE COURSE</a>
+                                <a href="javascript::void(0);" class="btn btn-ULEARN-cview mt-1" data-toggle="modal" data-target="#rateModal">RATE COURSE</a>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                                             
                                         	@endif
                                         </span>
-                                        <a href="{{ url('course-enroll/'.$course->course_slug.'/'.SiteHelpers::encrypt_decrypt($curriculum_lecture->lecture_quiz_id,true)) }}" class="btn btn-KIAN-preview">
+                                        <a href="{{ url('course-enroll/'.$course->course_slug.'/'.SiteHelpers::encrypt_decrypt($curriculum_lecture->lecture_quiz_id,true)) }}" class="btn btn-ULEARN-preview">
                                         @if($is_completed)
                                         RESTART
                                         @else

@@ -1,19 +1,19 @@
-<p align="center"><img src="https://www.KIANpro.com/img/logo_md.png"><a href="https://packagist.org/packages/KIANpro/KIAN"><img src="https://poser.pugx.org/KIANpro/KIAN/license.svg" alt="License"></a></p>
+<p align="center"><img src="https://www.ULEARNpro.com/img/logo_md.png"><a href="https://packagist.org/packages/ULEARNpro/ULEARN"><img src="https://poser.pugx.org/ULEARNpro/ULEARN/license.svg" alt="License"></a></p>
 <p align="center">
   <a href="https://ko-fi.com/G2G311PPB"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi"></a>
 </p>
 
-* [AboutKIAN](#about-KIAN)
-* [Key Features](#about-KIAN)
-* [Demo & Credentials](#about-KIAN)
+* [AboutULEARN](#about-ULEARN)
+* [Key Features](#about-ULEARN)
+* [Demo & Credentials](#about-ULEARN)
 * [Access ReactJS Page](#access-reactjs-page)
-* [Installation](#about-KIAN)
-* [Support](#about-KIAN)
-* [License](#about-KIAN)
+* [Installation](#about-ULEARN)
+* [Support](#about-ULEARN)
+* [License](#about-ULEARN)
 
-## AboutKIAN
+## AboutULEARN
 
-<a href="https://www.KIANpro.com">KIAN</a> is an impressive ACADEMY script which comprises of all the basic features that needed for online learning. This package includes responsive frontend website, instructor/admin dashboard with a backend template. Admin can manage every aspect of the system, while the instructors could create creative courses through an interactive curriculum with various types of course files such as audio, video, document and text.
+<a href="https://www.ULEARNpro.com">ULEARN</a> is an impressive ACADEMY script which comprises of all the basic features that needed for online learning. This package includes responsive frontend website, instructor/admin dashboard with a backend template. Admin can manage every aspect of the system, while the instructors could create creative courses through an interactive curriculum with various types of course files such as audio, video, document and text.
 
 ```diff
 + Requests: 
@@ -39,26 +39,26 @@
 16. Website Security
 
 ## Demo & Credentials
-Demo Link : https://www.KIANpro.com/demo/
+Demo Link : https://www.ULEARNpro.com/demo/
 
 |    Role       |        Email ID        |   Password    |
 | ------------- | ---------------------  | ------------- |
-|    Admin      | admin@KIAN.com       |    secret     |
-|    Instructor | instructor@KIAN.com  |    secret     |
-|    Student    | student@KIAN.com     |    secret     |
+|    Admin      | admin@ULEARN.com       |    secret     |
+|    Instructor | instructor@ULEARN.com  |    secret     |
+|    Student    | student@ULEARN.com     |    secret     |
 
 ## Access ReactJS Page
 
-Login at the following link using the student credentials, username:student@KIAN.com | password:secret
+Login at the following link using the student credentials, username:student@ULEARN.com | password:secret
 
 ```sh
-https://www.KIANpro.com/demo/login
+https://www.ULEARNpro.com/demo/login
 ```
 
 Navigate to the following link, to access the course learn page directly
 
 ```sh
-https://www.KIANpro.com/demo/course-enroll/photography-become-a-better-photographer/dlhZZTZ6bmZWTGdRd3YzVWp2ZldMQT09
+https://www.ULEARNpro.com/demo/course-enroll/photography-become-a-better-photographer/dlhZZTZ6bmZWTGdRd3YzVWp2ZldMQT09
 ```
 
 ## Installation
@@ -90,7 +90,7 @@ php artisan db:seed
 ```
 
 ## Support
-For contribution and customisation supports, kindly contact us through the Email IDKIANpro@gmail.com
+For contribution and customisation supports, kindly contact us through the Email IDULEARNpro@gmail.com
 
 ## License
-KIAN is open-source software licensed under the [MIT License](LICENSE).
+ULEARN is open-source software licensed under the [MIT License](LICENSE).

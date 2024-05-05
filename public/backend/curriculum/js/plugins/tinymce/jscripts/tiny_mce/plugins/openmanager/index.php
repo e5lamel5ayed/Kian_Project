@@ -693,7 +693,8 @@ uploadfolder/media</pre>
 		<div class="tab-pane<?php echo ($tabno==1)?" active":""; ?>" id="home">
 			<div id="upload-img">
 				<form class="fileuploadsingle" action="php/fileactions.php?s=uploadfile" method="POST" enctype="multipart/form-data">
-					<input type="hidden" name="mediatype" value="<?php echo $mediatype; ?>" />
+					
+				<input type="hidden" name="mediatype" value="<?php echo $mediatype; ?>" />
 					<input type="hidden" name="uploadfolder" value="<?php echo $uploadfolder; ?>" />
 					<div class="row fileupload-buttonbar">
 						<div class="span7" style="width:95%;float:left;">

@@ -80,7 +80,7 @@ class CourseController extends Controller
 
     public function courseView($course_slug = '', Request $request)
     {
-        $course_breadcrumb = Session::get('course_breadcrumb');
+        $course_breadcrumb = session::get('course_breadcrumb');
         $course = Course::where('course_slug', $course_slug)->first();
 
         $curriculum = $this->model->getcurriculum($course->id, $course_slug);
@@ -984,7 +984,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
                     'status'=>true,
                     'file_id'=> $courseFiles->id,
                     'file_title'=> $file_title,
-                    'file_size'=> \KIANHelpers::HumanFileSize($file_size)
+                    'file_size'=> \ulearnHelpers::HumanFileSize($file_size)
                 );
             }else{
                 $return_data = array(

@@ -74,14 +74,14 @@
                 <!-- blog sidebar start -->
                 <div class="col-xl-3 col-lg-3 col-md-4 d-none d-md-block">
                     <section class="course-feature">
-                        <h6 class="text-center mt-3">SUBSCRIBE TOKIAN BLOG</h6>
+                        <h6 class="text-center mt-3">SUBSCRIBE TOULEARN BLOG</h6>
 
                         <div class="pl-3 pr-2">
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
 
                             <input type="text" class="form-control form-control-sm" placeholder="abc@xyz.com">
 
-                            <a href="#" class="btn btn-KIAN-cview mt-3">Subscribe</a>
+                            <a href="#" class="btn btn-ULEARN-cview mt-3">Subscribe</a>
                         </div>
                     </section>
                     

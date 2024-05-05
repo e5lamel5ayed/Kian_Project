@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class LoginController extends Controller
 {
@@ -83,7 +84,7 @@ class LoginController extends Controller
  
     public function socialLogin($social)
     {
-        return Socialite::driver($social)->redirect();
+        return \Laravel\Socialite\Facades\Socialite::driver($social)->redirect();
     }
  
    /**
@@ -95,13 +96,13 @@ class LoginController extends Controller
     public function handleProviderCallback($social)
     {
  
-        $userSocial = Socialite::driver($social)->user();
+        $userSocial = \Laravel\Socialite\Facades\Socialite::driver($social)->user();
         // echo '<pre>';print_r($userSocial);exit;
         $user = User::where(['email' => $userSocial->getEmail()])->first();
  
        if($user){
  
-            Auth::login($user);
+            FacadesAuth::login($user);
             return redirect()->action('HomeController@index');
  
        }else{

@@ -198,7 +198,7 @@ class Person extends \Faker\Provider\Person
         "Julian", "Julius", "Just", "Jürgen", "Jøran", "Jørg", "Jørgen", "Jørn", "Jørund", "Kadir", "Kai", "Kalle",
         "Kamal", "Kamran", "Karel", "Karelius", "Karim", "Karl", "Karlo", "Karstein", "Karsten", "Kasim", "Kaspar",
         "Kasper", "Kato", "Kay", "Kazimierz", "Keith", "Kemal", "Ken", "Kennet", "Kenneth", "Kent", "Ketil", "Kevin",
-        "Khalid", "Khalil", "Kian", "Kim", "Kimberly", "Kittil", "Kjartan", "Kjell", "Kjerand", "Kjetil", "Kjølv",
+        "Khalid", "Khalil", "ULEARN", "Kim", "Kimberly", "Kittil", "Kjartan", "Kjell", "Kjerand", "Kjetil", "Kjølv",
         "Klas", "Klaus", "Klemet", "Kleng", "Knut", "Kolbein", "Kolbjørn", "Kolfinn", "Konrad", "Konstantin",
         "Kornelius", "Kris", "Kristen", "Krister", "Kristian", "Kristofer", "Kristoffer", "Ksenia", "Kurt", "Kyrre",
         "Kåre", "Lage", "Lambert", "Lars", "Lasse", "Laurent", "Laurentius", "Lauri", "Laurits", "Lauritz", "Lavrans",

@@ -28,7 +28,7 @@
                <div class="col-12 not-found-col">
                     <span><b>4<span class="blue">0</span>1</b></span>
                     <h3>Sorry! You are not allowed to access this page</h3>
-                    <a href="{{ route('home') }}" class="btn btn-KIAN-cview mt-3">Go toKIAN homepage</a>
+                    <a href="{{ route('home') }}" class="btn btn-ULEARN-cview mt-3">Go toULEARN homepage</a>
                </div>
             </div>
         </article>

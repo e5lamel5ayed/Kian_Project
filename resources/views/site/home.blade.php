@@ -87,7 +87,7 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <h3 class="dblock-heading">{{ Sitehelpers::get_option('pageHome', 'learn_block_title') }}</h3>
                         <p class="dblock-text">{!! Sitehelpers::get_option('pageHome', 'learn_block_text') !!}</p>
-                        <a href="{{ route('course.list') }}" class="btn btn-KIAN">Explore Courses</a>
+                        <a href="{{ route('course.list') }}" class="btn btn-ULEARN">Explore Courses</a>
                     </div>
 
                     <div class="col-xl-6 col-lg-6 col-md-6 vertical-align">

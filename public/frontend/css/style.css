@@ -91,7 +91,7 @@ if it's not present, don't show loader */
 }
 .btn-learna:hover{background-color:transparent;border:1px solid #639cd9;color:#639cd9 !important}
 
-.btn-KIAN, .btn-KIAN:hover{
+.btn-ULEARN, .btn-ULEARN:hover{
     color: #fff;
     font-size: 18px;
     font-weight: 700;
@@ -99,7 +99,7 @@ if it's not present, don't show loader */
     padding: 0.375rem 1.60rem;
 }
 
-.btn-KIAN-cview, .btn-KIAN-cview:hover, .btn-KIAN-cview:focus{
+.btn-ULEARN-cview, .btn-ULEARN-cview:hover, .btn-ULEARN-cview:focus{
     color: #fff;
     font-size: 13px;
     font-weight: 600;
@@ -107,7 +107,7 @@ if it's not present, don't show loader */
     padding: 0.375rem 0.7rem;
 }
 
-.btn-KIAN-preview, .btn-KIAN-preview:hover{
+.btn-ULEARN-preview, .btn-ULEARN-preview:hover{
     color: #fff;
     font-size: 11px;
     font-weight: 700;
@@ -345,7 +345,7 @@ footer .c-row{
 .dblock-text{
     margin-top: 20px;
 }
-.learn-block .btn-KIAN{
+.learn-block .btn-ULEARN{
     margin-top: 15px;
 }
 

@@ -31,7 +31,7 @@ class ComposerStaticInit4e7894d48daa00fee5e85f66d27ff186
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
-        '5765f4176d6e3aea429ea45c1e98ac78' => __DIR__ . '/../..' . '/app/Http/SiteHelpers.php',
+        '802c5f17664c8293b8134358ef82f77e' => __DIR__ . '/../..' . '/app/Http/SiteHelpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -595,7 +595,6 @@ class ComposerStaticInit4e7894d48daa00fee5e85f66d27ff186
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Library\\VideoHelpers' => __DIR__ . '/../..' . '/app/Library/VideoHelpers.php',
-        'App\\Library\\KIANHelpers' => __DIR__ . '/../..' . '/app/Library/KIANHelpers.php',
         'App\\Mail\\ContactAdmin' => __DIR__ . '/../..' . '/app/Mail/ContactAdmin.php',
         'App\\Mail\\ContactInstructor' => __DIR__ . '/../..' . '/app/Mail/ContactInstructor.php',
         'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',

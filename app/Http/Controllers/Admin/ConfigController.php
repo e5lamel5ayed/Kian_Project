@@ -6,7 +6,7 @@
  * @category  File
  * @package   Config
  * @author    Mohamed Yahya
- * @copyrightKIAN  
+ * @copyrightULEARN  
  * @license   BSD Licence
  * @link      Link
  */
@@ -28,7 +28,7 @@ use SiteHelpers;
  * @category  Class
  * @package   Config
  * @author    Mohamed Yahya
- * @copyrightKIAN
+ * @copyrightULEARN
  * @license   BSD Licence
  * @link      Link
  */

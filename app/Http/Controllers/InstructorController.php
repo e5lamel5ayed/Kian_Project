@@ -53,15 +53,30 @@ class InstructorController extends Controller
 
     public function dashboard(Request $request)
     {
-        $instructor_id = \Auth::user()->instructor->id;
-        $courses = DB::table('courses')
-                        ->select('courses.*', 'categories.name as category_name')
-                        ->leftJoin('categories', 'categories.id', '=', 'courses.category_id')
-                        ->where('courses.instructor_id', $instructor_id)
-                        ->paginate(5);
-        $metrics = Instructor::metrics($instructor_id);
-        return view('instructor.dashboard', compact('courses', 'metrics'));
+        // Check if the user is authenticated
+        if (\Auth::check()) {
+            // Check if the authenticated user has an associated instructor record
+            if (\Auth::user()->instructor) {
+                $instructor_id = \Auth::user()->instructor->id;
+                // Retrieve courses for the authenticated instructor
+                $courses = DB::table('courses')
+                                ->select('courses.*', 'categories.name as category_name')
+                                ->leftJoin('categories', 'categories.id', '=', 'courses.category_id')
+                                ->where('courses.instructor_id', $instructor_id)
+                                ->paginate(5);
+                // Retrieve instructor metrics
+                $metrics = Instructor::metrics($instructor_id);
+                return view('instructor.dashboard', compact('courses', 'metrics'));
+            } else {
+                // Handle case where the authenticated user does not have an associated instructor record
+                return redirect()->back()->with('error', 'You are not registered as an instructor.');
+            }
+        } else {
+            // Handle case where the user is not authenticated
+            return redirect()->route('login')->with('error', 'Please log in to view the dashboard.');
+        }
     }
+    
 
     public function contactInstructor(Request $request)
     {

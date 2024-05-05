@@ -118,7 +118,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * replaced by specific unisex slovakian title
+     * replaced by specific unisex slovaULEARN title
      */
     public static function titleMale()
     {
@@ -126,7 +126,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * replaced by specific unisex slovakian title
+     * replaced by specific unisex slovaULEARN title
      */
     public static function titleFemale()
     {

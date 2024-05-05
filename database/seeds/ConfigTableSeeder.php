@@ -100,7 +100,7 @@ class ConfigTableSeeder extends Seeder
     <div class="container">
         <div class="row">
             <div class="col-12 text-center seperator-head mt-3">
-                <h3>Why chooseKIAN</h3>
+                <h3>Why chooseULEARN</h3>
                 <p class="mt-3">Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
             </div>
         </div>
@@ -275,7 +275,7 @@ class ConfigTableSeeder extends Seeder
             'id'=>11,
             'code'=>'settingGeneral',
             'option_key'=>'application_name',
-            'option_value'=>'KIAN'
+            'option_value'=>'ULEARN'
             ] );
                         
             Config::create( [
@@ -303,7 +303,7 @@ class ConfigTableSeeder extends Seeder
                 'id'=>15,
                 'code'=>'settingGeneral',
                 'option_key'=>'admin_email',
-                'option_value'=>'admin@KIAN.com'
+                'option_value'=>'admin@ULEARN.com'
                 ] );
                         
             Config::create( [

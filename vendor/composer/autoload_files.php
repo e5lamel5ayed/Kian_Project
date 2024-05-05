@@ -30,5 +30,5 @@ return array(
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
     '0d8253363903f0ac7b0978dcde4e28a0' => $vendorDir . '/beyondcode/laravel-dump-server/helpers.php',
-    '5765f4176d6e3aea429ea45c1e98ac78' => $baseDir . '/app/Http/SiteHelpers.php',
+    '802c5f17664c8293b8134358ef82f77e' => $baseDir . '/app/Http/SiteHelpers.php',
 );

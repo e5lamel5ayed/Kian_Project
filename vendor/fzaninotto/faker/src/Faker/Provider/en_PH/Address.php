@@ -186,7 +186,7 @@ class Address extends \Faker\Provider\en_US\Address
         'San Julian', 'San Policarpo', 'Sulat', 'Taft', 'Buenavista',
         'Jordan', 'Nueva Valencia', 'San Lorenzo', 'Sibunag', 'Aguinaldo',
         'Alfonso Lista', 'Asipulo', 'Banaue', 'Hingyon', 'Hungduan',
-        'Kiangan', 'Lagawe', 'Lamut', 'Mayoyao', 'Tinoc', 'Batac City',
+        'ULEARNgan', 'Lagawe', 'Lamut', 'Mayoyao', 'Tinoc', 'Batac City',
         'Laoag City', 'Adams', 'Bacarra', 'Badoc', 'Bangui', 'Banna',
         'Burgos', 'Carasi', 'Currimao', 'Dingras', 'Dumalneg', 'Marcos',
         'Nueva Era', 'Pagudpud', 'Paoay', 'Pasuquin', 'Piddig', 'Pinili',

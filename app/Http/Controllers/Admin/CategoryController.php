@@ -6,7 +6,7 @@
  * @category  File
  * @package   Category
  * @author    Mohamed Yahya
- * @copyrightKIAN  
+ * @copyrightULEARN  
  * @license   BSD Licence
  * @link      Link
  */
@@ -23,7 +23,7 @@ use DB;
  * @category  Class
  * @package   Category
  * @author    Mohamed Yahya
- * @copyrightKIAN
+ * @copyrightULEARN
  * @license   BSD Licence
  * @link      Link
  */

@@ -58,7 +58,7 @@ class Internet extends \Faker\Provider\Internet
         'garshasp',
         'hanie', 'hashem', 'hirbod', 'hoda', 'hormoz', 'hossein',
         'jaleh', 'jamshid', 'javad',
-        'kamran', 'karim', 'kasra', 'katayoun', 'kazem', 'khorshid', 'khosrow', 'kiana', 'kiarash', 'kourosh',
+        'kamran', 'karim', 'kasra', 'katayoun', 'kazem', 'khorshid', 'khosrow', 'ULEARNa', 'kiarash', 'kourosh',
         'laleh', 'leila',
         'mahdi', 'mahmoud', 'mahshid', 'majid', 'manuchehr', 'marjan', 'maryam', 'marzban', 'massoud', 'mazdak', 'maziar', 'mehran', 'mehrdad', 'meysam', 'milad', 'mina', 'mithra', 'mohammad', 'mohsen', 'musa',
         'nasrin', 'nazanin', 'niloufar',

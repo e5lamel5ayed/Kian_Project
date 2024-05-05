@@ -29,11 +29,11 @@
                     @if($status == "success")
                         <span><i class="fas fa-thumbs-up"></i></span>
                         <h6 class="my-3">Your transaction is successfull  @if($transId !=0){{ ' and your transaction id is '.$transId }} @endif</h6>
-                        <a href="{{ route('course.learn', $course->course_slug) }}" class="btn btn-KIAN-cview mt-3">Go to course learn page</a>
+                        <a href="{{ route('course.learn', $course->course_slug) }}" class="btn btn-ULEARN-cview mt-3">Go to course learn page</a>
                     @else
                         <span><i class="fas fa-thumbs-down"></i></span>
                         <h6 class="my-3">Sorry! Your transaction was failed...</h6>
-                        <a href="{{ route('course.view', $course->course_slug) }}" class="btn btn-KIAN-cview mt-3">Return to course</a>
+                        <a href="{{ route('course.view', $course->course_slug) }}" class="btn btn-ULEARN-cview mt-3">Return to course</a>
                     @endif
                </div>
             </div>

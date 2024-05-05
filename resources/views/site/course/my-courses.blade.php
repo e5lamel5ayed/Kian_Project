@@ -66,7 +66,7 @@
                     <div class="col-12 not-found-col">
                             <span><b>2<span class="blue">0</span>4</b></span>
                             <h3>Sorry! No courses added to your account</h3>
-                            <a href="{{ route('course.list') }}" class="btn btn-KIAN-cview mt-3">Explore Courses</a>
+                            <a href="{{ route('course.list') }}" class="btn btn-ULEARN-cview mt-3">Explore Courses</a>
                     </div>
                     </div>
                 </article>
