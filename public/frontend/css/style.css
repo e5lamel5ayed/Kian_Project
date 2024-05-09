@@ -370,12 +370,13 @@ footer .c-row{
 }
 #main-footer ul li {
     color: #fff;
-    line-height: 1.1;
+    line-height: 2.1;
 }
 #main-footer ul li a{
     color: #fff;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 17px;
+    font-weight: 300;
 }
 #main-footer ul li a:hover{
     text-decoration: underline;

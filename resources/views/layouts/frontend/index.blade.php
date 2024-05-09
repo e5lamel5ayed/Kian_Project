@@ -130,7 +130,8 @@
                 </ul>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 text-center mt-4">
-                <img src="{{ asset('frontend/img/logo_footer.png') }}" class="img-fluid" width="210" height="48">
+                {{-- <img src="{{ asset('frontend/img/logo_footer.png') }}" class="img-fluid" width="210" height="48"> --}}
+                <h2 style="color: #fff; font-size: 8rem"><span style="color: #9685e9">K</span>IAN</h2>
                 <br>
                 <span id="c-copyright">
                     Copyright © 2024,ULEARN. All rights reserved.
