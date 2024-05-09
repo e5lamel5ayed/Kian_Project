@@ -4,22 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Course;
+// use App\Models\Course;
 use App\Models\Category;
 use App\Models\CourseRating;
 use App\Models\InstructionLevel;
 use Illuminate\Support\Facades\Validator;
-use DB;
+// use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
-use Image;
+// use Image;
 use SiteHelpers;
-use Crypt;
+// use Crypt;
 use App\Library\VideoHelpers;
 use URL;
 use App\Models\CourseVideos;
 use App\Models\CourseFiles;
-use Session;
+// use Session;
+use Illuminate\Support\Facades\DB; // Import the DB facade
+use Illuminate\Support\Facades\Redirect; // Import the Redirect facade
+use Illuminate\Support\Facades\Session; // Import the Session facade
+use App\Models\Course; // Import the Course model
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Crypt;
+use Intervention\Image\Facades\Image;
+use App\Helpers\ulearnHelpers;
+
+
+
+
+
 
 
 class CourseController extends Controller
@@ -29,6 +43,8 @@ class CourseController extends Controller
      *
      * @return void
      */
+    protected $model;
+    protected $data = [];
     public function __construct()
     {
         $this->model = new Course();
@@ -36,7 +52,7 @@ class CourseController extends Controller
 
     public function myCourses(Request $request)
     {
-        $user_id = \Auth::user()->id;
+        $user_id = Auth::user()->id;
         $courses = DB::table('courses')
                     ->select('courses.*', 'instructors.first_name', 'instructors.last_name')
                     ->join('instructors', 'instructors.id', '=', 'courses.instructor_id')
@@ -58,7 +74,7 @@ class CourseController extends Controller
             $success_message = 'Your review have been added successfully';
         }
         
-        $rating->user_id = \Auth::user()->id;
+        $rating->user_id = Auth::user()->id;
         $rating->course_id = $request->input('course_id');
         
         $rating_value = $request->input('rating');
@@ -114,7 +130,7 @@ class CourseController extends Controller
         {
             $video = $this->model->getvideoinfoFirst($course->course_video); 
         }
-        $course_rating = CourseRating::where('course_id', $course->id)->where('user_id', \Auth::user()->id)->first();
+        $course_rating = CourseRating::where('course_id', $course->id)->where('user_id', Auth::user()->id)->first();
         if(!$course_rating) {
             $course_rating = $this->getColumnTable('course_ratings');
         }
@@ -130,15 +146,15 @@ class CourseController extends Controller
 
     public function getDownloadResource($resource_id, $slug)
     {
-        $file_details = \DB::table('course_files')->where('id',$resource_id)->first();
-        $course = \DB::table('courses')->where('course_slug',$slug)->first();
+        $file_details = DB::table('course_files')->where('id',$resource_id)->first();
+        $course = DB::table('courses')->where('course_slug',$slug)->first();
         
         $file = public_path('storage/course/'.$course->id.'/'.$file_details->file_name.'.'.$file_details->file_extension);
         $headers = array(
               'Content-Type: application/pdf',
             );
 
-        return \Response::download($file, $file_details->file_title, $headers);
+        return Response::download($file, $file_details->file_title, $headers);
     }
 
     public function readPDF($file_id)
@@ -334,7 +350,7 @@ class CourseController extends Controller
         $paginate_count = 10;
 
         
-        $instructor_id = \Auth::user()->instructor->id;
+        $instructor_id = Auth::user()->instructor->id;
         if($request->has('search')){
             $search = $request->input('search');
 
@@ -391,7 +407,7 @@ class CourseController extends Controller
     {   
         $course = Course::find($course_id);
 
-        $user_id = \Auth::user()->instructor->id;
+        $user_id = Auth::user()->instructor->id;
         $coursecurriculum = $this->model->getcurriculuminfo($course_id,$user_id);
         // echo "<pre>";
         // print_r($coursecurriculum);
@@ -494,7 +510,7 @@ class CourseController extends Controller
         }
 
         $course->course_title = $request->input('course_title');
-        $course->instructor_id = \Auth::user()->instructor->id;
+        $course->instructor_id = Auth::user()->instructor->id;
         $course->category_id = $request->input('category_id');
         $course->instruction_level_id = $request->input('instruction_level_id');
         $course->keywords = $request->input('keywords');
@@ -554,7 +570,7 @@ class CourseController extends Controller
         $courseVideos->duration = $duration;
         $courseVideos->image_name = $video_image_name;
         $courseVideos->video_tag = 'curriculum';
-        $courseVideos->uploader_id = \Auth::user()->instructor->id;
+        $courseVideos->uploader_id = Auth::user()->instructor->id;
         $courseVideos->course_id = $course_id;
         $courseVideos->processed = '1';
         $courseVideos->created_at = $created_at;
@@ -725,7 +741,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
             $courseVideos->duration = $duration;
             $courseVideos->image_name = $file_name.'.jpg';
             $courseVideos->video_tag = 'curriculum';
-            $courseVideos->uploader_id = \Auth::user()->instructor->id;
+            $courseVideos->uploader_id = Auth::user()->instructor->id;
             $courseVideos->course_id = $course_id;
             $courseVideos->processed = '1';
             $courseVideos->created_at = $created_at;
@@ -791,7 +807,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
               $courseFiles->processed = 0;
             }
             $courseFiles->file_tag = 'curriculum';
-            $courseFiles->uploader_id = \Auth::user()->instructor->id;
+            $courseFiles->uploader_id = Auth::user()->instructor->id;
             $courseFiles->created_at = time();
             $courseFiles->updated_at = time();
             if($courseFiles->save()){
@@ -850,7 +866,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
             $courseFiles->file_size = $file_size;
             $courseFiles->duration = $pdfPages;
             $courseFiles->file_tag = 'curriculum_presentation';
-            $courseFiles->uploader_id = \Auth::user()->instructor->id;
+            $courseFiles->uploader_id = Auth::user()->instructor->id;
             $courseFiles->created_at = time();
             $courseFiles->updated_at = time();
             if($courseFiles->save()){
@@ -913,7 +929,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
             $courseFiles->file_size = $file_size;
             $courseFiles->duration = $pdfPages;
             $courseFiles->file_tag = 'curriculum';
-            $courseFiles->uploader_id = \Auth::user()->instructor->id;
+            $courseFiles->uploader_id = Auth::user()->instructor->id;
             $courseFiles->created_at = time();
             $courseFiles->updated_at = time();
             if($courseFiles->save()){
@@ -943,58 +959,61 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
         exit;
     }
         
-    public function postLectureResourceSave($lid,Request $request)
+
+    
+    public function postLectureResourceSave($lid, Request $request)
     {
-            $course_id = $request->input('course_id');
-            $document = $request->file('lectureres');
-        
-            $file_tmp_name = $document->getPathName();
-            $file_name = explode('.',$document->getClientOriginalName());
-            $file_name = $file_name[0].'_'.time().rand(4,9999);
-            $file_type = $document->getClientOriginalExtension();
-            $file_title = $document->getClientOriginalName();
-            $file_size = $document->getSize();
-            
-            if($file_type == 'pdf'){
-                $pdftext = file_get_contents($document);
-                $pdfPages = preg_match_all("/\/Page\W/", $pdftext, $dummy);
-            } else {
-                $pdfPages = '';
+        $course_id = $request->input('course_id');
+        $document = $request->file('lectureres');
+    
+        $file_tmp_name = $document->getPathName();
+        $file_name = explode('.', $document->getClientOriginalName());
+        $file_name = $file_name[0] . '_' . time() . rand(4, 9999);
+        $file_type = $document->getClientOriginalExtension();
+        $file_title = $document->getClientOriginalName();
+        $file_size = $document->getSize();
+    
+        if ($file_type == 'pdf') {
+            $pdftext = file_get_contents($document);
+            $pdfPages = preg_match_all("/\/Page\W/", $pdftext, $dummy);
+        } else {
+            $pdfPages = '';
+        }
+    
+        $request->file('lectureres')->storeAs('course/' . $course_id, $file_name . '.' . $file_type);
+    
+        $courseFiles = new CourseFiles;
+        $courseFiles->file_name = $file_name;
+        $courseFiles->file_title = $file_title;
+        $courseFiles->file_type = $file_type;
+        $courseFiles->file_extension = $file_type;
+        $courseFiles->file_size = $file_size;
+        $courseFiles->duration = $pdfPages;
+        $courseFiles->file_tag = 'curriculum_resource';
+        $courseFiles->uploader_id = Auth::user()->instructor->id;
+        $courseFiles->created_at = time();
+        $courseFiles->updated_at = time();
+        if ($courseFiles->save()) {
+            if (!empty($lid)) {
+                $data['resources'] = $courseFiles->id;
+                $newID = $this->model->insertLectureQuizResourceRow($data, $lid);
             }
-            
-            $request->file('lectureres')->storeAs('course/'.$course_id, $file_name.'.'.$file_type);
-       
-            $courseFiles = new CourseFiles;
-            $courseFiles->file_name = $file_name;
-            $courseFiles->file_title = $file_title;
-            $courseFiles->file_type = $file_type;
-            $courseFiles->file_extension = $file_type;
-            $courseFiles->file_size = $file_size;
-            $courseFiles->duration = $pdfPages;
-            $courseFiles->file_tag = 'curriculum_resource';
-            $courseFiles->uploader_id = \Auth::user()->instructor->id;
-            $courseFiles->created_at = time();
-            $courseFiles->updated_at = time();
-            if($courseFiles->save()){
-                if(!empty($lid)){
-                    $data['resources'] = $courseFiles->id;
-                    $newID = $this->model->insertLectureQuizResourceRow($data , $lid);
-                }
-                $return_data = array(
-                    'status'=>true,
-                    'file_id'=> $courseFiles->id,
-                    'file_title'=> $file_title,
-                    'file_size'=> \ulearnHelpers::HumanFileSize($file_size)
-                );
-            }else{
-                $return_data = array(
-                    'status'=>false,
-                );
-            }
-        
+            $return_data = array(
+                'status' => true,
+                'file_id' => $courseFiles->id,
+                'file_title' => $file_title,
+                'file_size' => SiteHelpers::HumanFileSize($file_size)
+            );
+        } else {
+            $return_data = array(
+                'status' => false,
+            );
+        }
+    
         echo json_encode($return_data);
         exit;
     }
+    
 
     public function postLectureTextSave(Request $request)
     {
@@ -1087,7 +1106,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
         $courseFiles->file_type = 'link';
         $courseFiles->file_extension = 'link';
         $courseFiles->file_tag = 'curriculum_resource_link';
-        $courseFiles->uploader_id = \Auth::user()->instructor->id;
+        $courseFiles->uploader_id = Auth::user()->instructor->id;
         $courseFiles->created_at = time();
         $courseFiles->updated_at = time();
         if($courseFiles->save()){

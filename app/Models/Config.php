@@ -4,7 +4,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use File;
 use Illuminate\Support\Facades\Storage;
-use DB;
+// use DB;
+use Illuminate\Support\Facades\DB; // Import the DB facade
 
 class Config extends Model
 {   

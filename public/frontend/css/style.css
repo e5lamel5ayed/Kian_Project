@@ -224,6 +224,11 @@ nav.secondary-nav ul li a.active{color:#639cd9;font-weight:bold;}
     height: 350px;
     position: relative;
     text-align: center;
+/*     
+    background-image:'https://s39613.pcdn.co/wp-content/uploads/2022/05/african-american-woman-working-late-night-on-laptop-picture-id1300822118.jpg' !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 .homepage-slide-blue h1{
@@ -983,6 +988,9 @@ a.clear-filters,a.clear-filters:hover{
     color: #639cd9;
     font-weight: 500;
     cursor: pointer;
+}
+.align{
+    align-self: center
 }
 .becomeInstructorForm{
     border: 1px solid rgba(216,216,216,0.5);

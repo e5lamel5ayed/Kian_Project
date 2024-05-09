@@ -12,16 +12,25 @@ use App\Models\InstructionLevel;
 use App\Models\Credit;
 use App\Models\WithdrawRequest;
 use Illuminate\Support\Facades\Validator;
-use DB;
+// use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
-use Image;
+// use Image;
 use SiteHelpers;
 use Crypt;
 use URL;
-use Session;
+// use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactInstructor;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+
+
+
+
 
 class InstructorController extends Controller
 {
@@ -54,10 +63,10 @@ class InstructorController extends Controller
     public function dashboard(Request $request)
     {
         // Check if the user is authenticated
-        if (\Auth::check()) {
+        if (Auth::check()) {
             // Check if the authenticated user has an associated instructor record
-            if (\Auth::user()->instructor) {
-                $instructor_id = \Auth::user()->instructor->id;
+            if (Auth::user()->instructor) {
+                $instructor_id = Auth::user()->instructor->id;
                 // Retrieve courses for the authenticated instructor
                 $courses = DB::table('courses')
                                 ->select('courses.*', 'categories.name as category_name')
@@ -86,13 +95,13 @@ class InstructorController extends Controller
     }
     public function becomeInstructor(Request $request)
     {
-        if(!\Auth::check()){
+        if(!Auth::check()){
             return $this->return_output('flash', 'error', 'Please login to become an Instructor', 'back', '422');
         }
 
         $instructor = new Instructor();
 
-        $instructor->user_id = \Auth::user()->id;
+        $instructor->user_id = Auth::user()->id;
         $instructor->first_name = $request->input('first_name');
         $instructor->last_name = $request->input('last_name');
         $instructor->contact_email = $request->input('contact_email');
@@ -114,7 +123,7 @@ class InstructorController extends Controller
         $instructor->biography = $request->input('biography');
         $instructor->save();
 
-        $user = User::find(\Auth::user()->id);
+        $user = User::find(Auth::user()->id);
 
         $role = Role::where('name', 'instructor')->first();
         $user->roles()->attach($role);
@@ -124,7 +133,7 @@ class InstructorController extends Controller
 
     public function getProfile(Request $request)
     {
-        $instructor = Instructor::where('user_id', \Auth::user()->id)->first();
+        $instructor = Instructor::where('user_id', Auth::user()->id)->first();
         // echo '<pre>';print_r($instructor);exit;
         return view('instructor.profile', compact('instructor'));
     }
@@ -148,7 +157,7 @@ class InstructorController extends Controller
             return $this->return_output('error', 'error', $validator, 'back', '422');
         }
 
-        $instructor = Instructor::where('user_id', \Auth::user()->id)->first();
+        $instructor = Instructor::where('user_id', Auth::user()->id)->first();
         $instructor->first_name = $request->input('first_name');
         $instructor->last_name = $request->input('last_name');
         $instructor->contact_email = $request->input('contact_email');
@@ -199,7 +208,7 @@ class InstructorController extends Controller
 
     public function credits(Request $request)
     {
-        $credits = Credit::where('instructor_id', \Auth::user()->instructor->id)
+        $credits = Credit::where('instructor_id', Auth::user()->instructor->id)
                         ->where('credits_for', 1)
                         ->orderBy('created_at', 'desc')
                         ->paginate(10);
@@ -211,7 +220,7 @@ class InstructorController extends Controller
     {
         $withdraw_request = new WithdrawRequest();
 
-        $withdraw_request->instructor_id = \Auth::user()->instructor->id;
+        $withdraw_request->instructor_id = Auth::user()->instructor->id;
         $withdraw_request->paypal_id = $request->input('paypal_id');
         $withdraw_request->amount = $request->input('amount');
         $withdraw_request->save();
@@ -221,7 +230,7 @@ class InstructorController extends Controller
 
     public function listWithdrawRequests(Request $request)
     {
-        $withdraw_requests = WithdrawRequest::where('instructor_id', \Auth::user()->instructor->id)
+        $withdraw_requests = WithdrawRequest::where('instructor_id', Auth::user()->instructor->id)
                             ->paginate(10);
 
         return view('instructor.withdraw_requests', compact('withdraw_requests'));
