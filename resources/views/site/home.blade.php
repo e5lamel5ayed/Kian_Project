@@ -42,7 +42,8 @@
                         <div class="course-block mx-auto">
                             <a href="{{ route('course.view', $course->course_slug) }}">
                                 <main>
-                                    <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
+                                    {{-- <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif"> --}}
+                                    <img src="{{ asset($course->thumb_image) }}">
                                     <div class="col-md-12"><h6 class="course-title">{{ $course->course_title }}</h6></div>
                                     
                                     <div class="instructor-clist">
@@ -114,7 +115,8 @@
                         <div class="instructor-box mx-auto text-center">
                         <a href="{{ route('instructor.view', $instructor->instructor_slug) }}">
                             <main>
-                                <img src="@if(Storage::exists($instructor->instructor_image)){{ Storage::url($instructor->instructor_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
+                                {{-- <img src="@if(Storage::exists($instructor->instructor_image)){{ Storage::url($instructor->instructor_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif"> --}}
+                                <img src="{{ asset($instructor->instructor_image) }}">
                                 <div class="col-md-12">
                                     <h6 class="instructor-title">{{ $instructor->first_name.' '.$instructor->last_name }}</h6>
                                     <p>{!! mb_strimwidth($instructor->biography, 0, 120, ".....") !!}</p>

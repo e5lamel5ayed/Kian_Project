@@ -52,8 +52,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path('backend/assets/images'), // تحديد المسار الجديد هنا
+            'url' => env('APP_URL').'/backend/assets/images', // URL للوصول إلى الصور عبر الويب
             'visibility' => 'public',
         ],
 

@@ -440,41 +440,44 @@ class CourseController extends Controller
             if (Storage::exists($input['old_course_image'])) {
                 Storage::delete($input['old_course_image']);
             }
-
+    
             if (Storage::exists($input['old_thumb_image'])) {
                 Storage::delete($input['old_thumb_image']);
             }
-
+    
             //get filename
             $file_name   = $request->file('course_image')->getClientOriginalName();
-
+    
             // returns Intervention\Image\Image
             $image_make = Image::make($request->input('course_image_base64'))->encode('jpg');
-
+    
             // create path
-            $path = "course/".$course_id;
+            $path =$course_id;
             
             //check if the file name is already exists
             $new_file_name = SiteHelpers::checkFileName($path, $file_name);
-
+    
             //save the image using storage
-            Storage::put($path."/".$new_file_name, $image_make->__toString(), 'public');
-
+            Storage::disk('public')->put($path."/".$new_file_name, $image_make->__toString());
+    
             //resize image for thumbnail
             $thumb_image = "thumb_".$new_file_name;
             $resize = Image::make($request->input('course_image_base64'))->resize(258, 172)->encode('jpg');
-            Storage::put($path."/".$thumb_image, $resize->__toString(), 'public');
+            Storage::disk('public')->put($path."/".$thumb_image, $resize->__toString());
             
             $course = Course::find($course_id);
-            $course->course_image = $path."/".$new_file_name;
-            $course->thumb_image = $path."/".$thumb_image;
-
+            $course->course_image =  "backend/assets/images/".$path."/".$new_file_name;
+            $course->thumb_image = "backend/assets/images/".$path."/".$thumb_image;
+    
             $course->save();
         }
-
+    
         return $this->return_output('flash', 'success', 'Course image updated successfully', 'instructor-course-image/'.$course_id, '200');
     }
 
+
+
+    
     public function instructorCourseInfoSave(Request $request)
     {
         $course_id = $request->input('course_id');

@@ -14,7 +14,7 @@
         <div class="breadcrumb-container">
             <div class="container">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">My Courses</li>
               </ol>
             </div>
@@ -31,7 +31,8 @@
                         <div class="course-block mx-auto">
                         <a href="{{ route('course.learn', $course->course_slug) }}" class="c-view">
                             <main>
-                                <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
+                                {{-- <img src="@if(Storage::exists($course->thumb_image)){{ Storage::url($course->thumb_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif"> --}}
+                                <img src="{{ asset($course->thumb_image) }}">
                                 <div class="col-md-12"><h6 class="course-title">{{ $course->course_title }}</h6></div>
                                 
                                 <div class="instructor-clist">

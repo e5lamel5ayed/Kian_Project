@@ -74,8 +74,8 @@
                     </div>
 
                     <div class="course-image mt-2">
-                        <img src="@if(Storage::exists($course->course_image)){{ Storage::url($course->course_image) }}@else{{ asset('backend/assets/images/course_detail.jpg') }}@endif">
-                    </div>
+                        <img src="{{ asset($course->course_image) }}">
+                                        </div>
 
                     @if($course->overview)
                         <h4 class="mt-4">Course Overview</h4>

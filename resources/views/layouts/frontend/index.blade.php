@@ -53,7 +53,11 @@
 
             <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 mt-auto mb-auto">
                 @guest
-                <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a>
+                <div class="d-flex">
+
+                    <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a>
+                    {{-- <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a> --}}
+                </div>
                 @else
                 <div class="dropdown float-xl-left float-sm-right float-right">
                   <span id="dropdownMenuButtonRight" data-toggle="dropdown">{{ Auth::user()->first_name }} &nbsp;<i class="fa fa-caret-down"></i></span>

@@ -194,12 +194,12 @@ class InstructorController extends Controller
             $new_file_name = SiteHelpers::checkFileName($path, $file_name);
 
             //save the image using storage
-            Storage::put($path."/".$new_file_name, $image_make->__toString(), 'public');
+           
 
-            $instructor->instructor_image = $path."/".$new_file_name;
+            Storage::disk('public')->put($path."/".$new_file_name, $image_make->__toString());
+            $instructor->instructor_image =   "backend/assets/images/".$path."/".$new_file_name;
             
         }
-
         $instructor->save();
 
         return $this->return_output('flash', 'success', 'Profile updated successfully', 'instructor-profile', '200');
