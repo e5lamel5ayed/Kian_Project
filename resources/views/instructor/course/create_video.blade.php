@@ -52,27 +52,24 @@ label.cabinet{
       
         <div class="col-md-6">
             <label class="cabinet center-block">
-                <figure class="course-image-container">
-                    <div class="video-preview">
-                    @if($video)
-                      @php
-                        $file_name = 'course/'.$video->course_id.'/'.$video->video_title.'.'.$video->video_type;
-                      @endphp
-                      @if(Storage::exists($file_name))
-                        <video width="100%" height="100%" controls preload="auto"><source src="{{ Storage::url($file_name) }}" type="video/mp4"></video>
-                      @else
-                        <blockquote class="blockquote custom-blockquote blockquote-success mt-4">
-                        <p class="mb-0">Promo video not yet uploaded</p>
-                        </blockquote>
-                      @endif
-                    @else
-                        <blockquote class="blockquote custom-blockquote blockquote-success">
-                        <p class="mb-0">Promo video not yet uploaded</p>
-                        </blockquote>
-                    @endif
-                    
-                    </div>
-                </figure>
+              <figure class="course-image-container">
+                <div class="video-preview">
+                @if($video)
+                  @php
+                    $file_name = "backend/assets/videos/".'course/'.$video->course_id.'/'.$video->video_title.'.'.$video->video_type;
+                  @endphp
+                
+                    <video width="100%" height="100%" controls preload="auto"><source src="{{ asset($file_name) }}" type="video/mp4"></video>
+
+
+                @else
+                    <blockquote class="blockquote custom-blockquote blockquote-success">
+                    <p class="mb-0">Promo video not yet uploaded</p>
+                    </blockquote>
+                @endif
+                
+                </div>
+            </figure>
             </label>
         </div>
         

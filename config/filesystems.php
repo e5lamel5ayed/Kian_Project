@@ -56,6 +56,12 @@ return [
             'url' => env('APP_URL').'/backend/assets/images', // URL للوصول إلى الصور عبر الويب
             'visibility' => 'public',
         ],
+        'video' => [
+            'driver' => 'local',
+            'root' => public_path('backend/assets/videos'), // Set the root directory for video storage
+            'url' => env('APP_URL') . '/backend/assets/videos', // URL prefix for accessing videos via the web
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

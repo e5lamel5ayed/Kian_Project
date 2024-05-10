@@ -100,6 +100,11 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('instructor-course-video/{course_id}', 'CourseController@instructorCourseVideo')->name('instructor.course.video.edit');
         Route::post('instructor-course-video-save', 'CourseController@instructorCourseVideoSave')->name('instructor.course.video.save');
+        // Route::post('instructor-course-video', 'CourseController@instructorCourseVideo')->name('instructor-course-video');
+
+
+
+
 
         Route::get('instructor-course-curriculum/{course_id}', 'CourseController@instructorCourseCurriculum')->name('instructor.course.curriculum.edit');
         Route::post('instructor-course-curriculum-save', 'CourseController@instructorCourseCurriculumSave')->name('instructor.course.curriculum.save');

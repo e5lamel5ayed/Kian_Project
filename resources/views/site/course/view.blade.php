@@ -223,21 +223,22 @@
                 <h6 class="underline-heading mt-3">COURSE INTRO</h6>
                 <section class="course_preview_video mt-3">
                     <div class="aligncenter overlay">
-                    	
-	                      @php
-	                        $file_name = 'course/'.$video->course_id.'/'.$video->video_title.'.'.$video->video_type;
-	                        $file_image_name = 'course/'.$video->course_id.'/'.$video->image_name;
-	                      @endphp
-	                     
+                      
+                        @php
+                        $file_name = "backend/assets/videos/".'course/'.$video->course_id.'/'.$video->video_title.'.'.$video->video_type;
+                          $file_image_name = "backend/assets/video_img/".$video->image_name;
+                        @endphp
+                       
                         <a href="#myVideo" class="btn-play far fa-play-circle lightbox"></a>
                         <video controls id="myVideo" style="display:none;">
-						    <source src="{{ Storage::url($file_name) }}" type="video/mp4">
-						    Your browser doesn't support HTML5 video tag.
-						</video>
-                        <img src="@if(Storage::exists($file_image_name)){{ Storage::url($file_image_name) }}@else{{ asset('backend/assets/images/course_detail.jpg') }}@endif" alt="image description">
+                <source src="{{ asset($file_name) }}" type="video/mp4">
+                Your browser doesn't support HTML5 video tag.
+            </video>
+                        <img src="{{ asset( $file_image_name) }}" alt="image description">
                     </div>
                 </section>
                 @endif
+
                 
                 <h6 class="mt-4 underline-heading">COURSE CATEGORIES</h6>
                 <ul class="ul-no-padding">

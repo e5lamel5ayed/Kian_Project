@@ -531,7 +531,97 @@ class CourseController extends Controller
         return $this->return_output('flash', 'success', $success_message, 'instructor-course-info/'.$course_id, '200');
     }
 
-    public function instructorCourseVideoSave(Request $request)
+//     public function instructorCourseVideoSave(Request $request)
+// {
+//     $course_id = $request->input('course_id');
+    
+//     $video = $request->file('course_video');
+    
+//     $file_tmp_name = $video->getPathName();
+//     $file_name = explode('.',$video->getClientOriginalName());
+//     $file_name = $file_name[0].'_'.time().rand(4,9999);
+//     $file_type = $video->getClientMimeType();
+//     $extension = $video->getClientOriginalExtension();
+//     $file_title = $video->getClientOriginalName();
+//     $file_name = str_slug($file_name, "-");
+    
+//     // ffmpeg.exe file path
+//     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+//         $ffmpeg_path = base_path().'\resources\assets\ffmpeg\ffmpeg_win\ffmpeg';
+//     } else {
+//         $ffmpeg_path = base_path().'/resources/assets/ffmpeg/ffmpeg_lin/ffmpeg.exe';
+//     }
+
+//     $ffmpeg = new VideoHelpers($ffmpeg_path , $file_tmp_name, $file_name);
+    
+//     $duration = $ffmpeg->getDuration();
+//     $duration = explode('.',$duration);
+//     $duration = $duration[0];
+//     $created_at = time();
+//     $path = 'course/'.$course_id;
+//     $video_name = 'raw_'.$created_at.'_'.$file_name.'.'.$extension;
+    
+//     $video_path = $path.'/'.$video_name;
+
+//     // Store the video using the 'video' disk
+//     $request->file('course_video')->storeAs($path, $video_name, 'video');
+
+//     // Update the video image path to backend/assets/video_img/
+//     $video_image_name = 'raw_'.$created_at.'_'.$file_name.'.jpg';
+//     $video_image_path = 'backend/assets/video_img/'.$video_image_name;
+//     $ffmpeg->convertImages($video_image_path);
+
+//     $courseVideos = new CourseVideos;
+//     $courseVideos->video_title = 'raw_'.$created_at.'_'.$file_name;
+//     $courseVideos->video_name = $file_title;
+//     $courseVideos->video_type = $extension;
+//     $courseVideos->duration = $duration;
+//     $courseVideos->image_name = $video_image_name;
+//     $courseVideos->video_tag = 'curriculum';
+//     $courseVideos->uploader_id = Auth::user()->instructor->id;
+//     $courseVideos->course_id = $course_id;
+//     $courseVideos->processed = '1';
+//     $courseVideos->created_at = $created_at;
+//     $courseVideos->updated_at = $created_at;
+//     if($courseVideos->save()){
+//         $course = Course::find($course_id);
+
+//         //delete old video
+//         $old_video = $this->model->getvideoinfoFirst($course->course_video);
+
+//         if($old_video)
+//         {
+//             $old_file_name = 'course/'.$old_video->course_id.'/'.$old_video->video_title.'.'.$old_video->video_type;
+//             $old_file_image_name = 'course/'.$old_video->course_id.'/'.$old_video->video_title.'.jpg';
+//             if (Storage::exists($old_file_name)) {
+//                 Storage::delete($old_file_name);
+//             }
+
+//             if (Storage::exists($old_file_image_name)) {
+//                 Storage::delete($old_file_image_name);
+//             }
+//         }
+
+//         $course->course_video = $courseVideos->id;
+//         $course->save();
+
+//         $return_data = array(
+//             'status'    => true,
+//             'duration'  => $duration,
+//             'file_title'=> $file_title,
+//             'file_link'=> Storage::url($video_path),
+//         );
+//     }else{
+//         $return_data = array(
+//             'status'=>false,
+//         );
+//     }
+//     return redirect()->route('instructor-course-video', ['course_id' => $course_id]);
+// }
+
+
+
+public function instructorCourseVideoSave(Request $request)
     {
         $course_id = $request->input('course_id');
         
@@ -544,28 +634,33 @@ class CourseController extends Controller
         $extension = $video->getClientOriginalExtension();
         $file_title = $video->getClientOriginalName();
         $file_name = str_slug($file_name, "-");
+        
         // ffmpeg.exe file path
-        $file_name = str_slug($file_name, "-");
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') { $ffmpeg_path = base_path().'\resources\assets\ffmpeg\ffmpeg_win\ffmpeg';} else { $ffmpeg_path = base_path().'/resources/assets/ffmpeg/ffmpeg_lin/ffmpeg.exe';}
-
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $ffmpeg_path = base_path().'\resources\assets\ffmpeg\ffmpeg_win\ffmpeg';
+        } else {
+            $ffmpeg_path = base_path().'/resources/assets/ffmpeg/ffmpeg_lin/ffmpeg.exe';
+        }
+    
         $ffmpeg = new VideoHelpers($ffmpeg_path , $file_tmp_name, $file_name);
         
-        //$ffmpeg->convertVideos($file_type);
         $duration = $ffmpeg->getDuration();
         $duration = explode('.',$duration);
         $duration = $duration[0];
-        $created_at=time();
+        $created_at = time();
         $path = 'course/'.$course_id;
         $video_name = 'raw_'.$created_at.'_'.$file_name.'.'.$extension;
         
         $video_path = $path.'/'.$video_name;
-
+    
+        // Store the video using the 'video' disk
+        $request->file('course_video')->storeAs($path, $video_name, 'video');
+    
+        // Update the video image path to backend/assets/video_img/
         $video_image_name = 'raw_'.$created_at.'_'.$file_name.'.jpg';
-        $video_image_path = storage_path('app/public/'.$path.'/'.$video_image_name);
+        $video_image_path = 'backend/assets/video_img/'.$video_image_name;
         $ffmpeg->convertImages($video_image_path);
-
-        $request->file('course_video')->storeAs($path, $video_name);
-   
+    
         $courseVideos = new CourseVideos;
         $courseVideos->video_title = 'raw_'.$created_at.'_'.$file_name;
         $courseVideos->video_name = $file_title;
@@ -580,10 +675,10 @@ class CourseController extends Controller
         $courseVideos->updated_at = $created_at;
         if($courseVideos->save()){
             $course = Course::find($course_id);
-
+    
             //delete old video
             $old_video = $this->model->getvideoinfoFirst($course->course_video);
-
+    
             if($old_video)
             {
                 $old_file_name = 'course/'.$old_video->course_id.'/'.$old_video->video_title.'.'.$old_video->video_type;
@@ -591,15 +686,15 @@ class CourseController extends Controller
                 if (Storage::exists($old_file_name)) {
                     Storage::delete($old_file_name);
                 }
-
+    
                 if (Storage::exists($old_file_image_name)) {
                     Storage::delete($old_file_image_name);
                 }
             }
-
+    
             $course->course_video = $courseVideos->id;
             $course->save();
-
+    
             $return_data = array(
                 'status'    => true,
                 'duration'  => $duration,
@@ -611,9 +706,14 @@ class CourseController extends Controller
                 'status'=>false,
             );
         }
-        echo json_encode($return_data);
+        return redirect()->route('instructor.course.video.edit', ['course_id' => $course_id]);
+     
         exit;
     }
+
+
+
+
 
     /* Curriculum start */
     public function postSectionSave(Request $request)
@@ -771,6 +871,8 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {               $ffmpeg_path = b
         echo json_encode($return_data);
         exit;
     }
+
+    
             
     public function postLectureAudioSave($lid,Request $request)
     {

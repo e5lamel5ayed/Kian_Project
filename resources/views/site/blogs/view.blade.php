@@ -60,7 +60,8 @@
                             </div>
 
                             <div class="course-image my-3">
-                                <img src="@if(Storage::exists($blog->blog_image)){{ Storage::url($blog->blog_image) }}@else{{ asset('backend/assets/images/blog_image.jpeg') }}@endif">
+                                {{-- <img src="@if(Storage::exists($blog->blog_image)){{ Storage::url($blog->blog_image) }}@else{{ asset('backend/assets/images/blog_image.jpeg') }}@endif"> --}}
+                                <img src="{{ asset($blog->blog_image) }}">
                             </div>
 
                             <p>{!! $blog->description !!}</p>

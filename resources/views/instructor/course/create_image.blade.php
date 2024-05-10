@@ -7,14 +7,14 @@
         }
 
         /*label.cabinet input.file{
-        position: relative;
-        height: 100%;
-        width: auto;
-        opacity: 0;
-        -moz-opacity: 0;
-      filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
-      margin-top:-30px;
-    }*/
+            position: relative;
+            height: 100%;
+            width: auto;
+            opacity: 0;
+            -moz-opacity: 0;
+          filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+          margin-top:-30px;
+        }*/
         .cabinet.center-block {
             margin-bottom: -1rem;
         }
@@ -97,10 +97,10 @@
                                         class="fa fa-trash remove-lp"
                                         data-content="{{ Crypt::encryptString(json_encode(['model' => 'courses', 'field' => 'course_image', 'pid' => 'id', 'id' => $course->id, 'photo' => $course->course_image])) }}"
                                         style="display: @if (Storage::exists($course->course_image)) {{ 'block' }} @else {{ 'none' }} @endif"></i>
-                                    {{-- <img src="@if (Storage::exists($course->course_image)) {{ Storage::url($course->course_image) }}@else{{ asset('backend/assets/images/course_detail.jpg') }} @endif"
-                                        class="gambar img-responsive" id="course_image-output" name="course_image-output" /> --}}
-                                        <img src="{{ asset($course->course_image) }}" class="gambar img-responsive" id="course_image-output" name="course_image-output" />
-                                    </figure>
+
+                                    <img src="{{ asset($course->course_image) }}" class="gambar img-responsive"
+                                        id="course_image-output" name="course_image-output" />
+                                </figure>
                             </label>
                         </div>
 
@@ -167,7 +167,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             //image crop start
-       
+
 
             var $uploadCrop,
                 tempFilename,
@@ -267,7 +267,7 @@
                         success: function(data) {
                             $("#" + current_id + "-output").attr("src",
                                 "{{ asset('backend/assets/images/course_detail.jpg') }}"
-                                );
+                            );
                             this_id.hide();
                         }
                     });

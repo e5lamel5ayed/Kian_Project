@@ -123,9 +123,9 @@ class BlogController extends Controller
             $new_file_name = SiteHelpers::checkFileName($path, $file_name);
 
             //save the image using storage
-            Storage::put($path."/".$new_file_name, $image_make->__toString(), 'public');
+            Storage::disk('public')->put($path."/".$new_file_name, $image_make->__toString());
 
-            $blog->blog_image = $path."/".$new_file_name;
+            $blog->blog_image = "backend/assets/images/". $path."/".$new_file_name;
             
         }
 

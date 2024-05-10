@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Blog;
-use DB;
+// use DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactAdmin;
 use App\Models\Config;
+use Illuminate\Support\Facades\DB; // Import the DB facade
+
 
 class HomeController extends Controller
 {
