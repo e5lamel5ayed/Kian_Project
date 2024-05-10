@@ -125,10 +125,22 @@ class HomeController extends Controller
         return view('site.blogs.view', compact('blog', 'archieves'));
     }
 
+
+    public function company()
+    {
+        return view('company');
+    }
+
     public function pageAbout(Request $request)
     {
         return view('site.pages.about');
     }
+
+    // ======
+    // public function pageCompany(Request $request)
+    // {
+    //     return view('site.pages.company');
+    // }
 
     public function pageContact(Request $request)
     {

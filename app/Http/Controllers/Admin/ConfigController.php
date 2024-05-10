@@ -6,7 +6,7 @@
  * @category  File
  * @package   Config
  * @author    Mohamed Yahya
- * @copyrightULEARN  
+ * @copyrightKIAN  
  * @license   BSD Licence
  * @link      Link
  */
@@ -28,7 +28,7 @@ use SiteHelpers;
  * @category  Class
  * @package   Config
  * @author    Mohamed Yahya
- * @copyrightULEARN
+ * @copyrightKIAN
  * @license   BSD Licence
  * @link      Link
  */
@@ -82,6 +82,12 @@ class ConfigController extends Controller
         $config = Config::get_options('pageAbout');
         return view('admin.config.page_about', compact('config'));
     }
+    // =====
+    // public function pageCompany(Request $request)
+    // {
+    //     $config = Config::get_options('pageCompany');
+    //     return view('admin.config.page_company', compact('config'));
+    // }
 
     public function pageContact(Request $request)
     {

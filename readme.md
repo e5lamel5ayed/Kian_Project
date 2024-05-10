@@ -3,17 +3,17 @@
   <a href="https://ko-fi.com/G2G311PPB"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi"></a>
 </p>
 
-* [AboutULEARN](#about-ULEARN)
-* [Key Features](#about-ULEARN)
-* [Demo & Credentials](#about-ULEARN)
+* [AboutKIAN](#about-KIAN)
+* [Key Features](#about-KIAN)
+* [Demo & Credentials](#about-KIAN)
 * [Access ReactJS Page](#access-reactjs-page)
-* [Installation](#about-ULEARN)
-* [Support](#about-ULEARN)
-* [License](#about-ULEARN)
+* [Installation](#about-KIAN)
+* [Support](#about-KIAN)
+* [License](#about-KIAN)
 
-## AboutULEARN
+## AboutKIAN
 
-<a href="https://www.ULEARNpro.com">ULEARN</a> is an impressive ACADEMY script which comprises of all the basic features that needed for online learning. This package includes responsive frontend website, instructor/admin dashboard with a backend template. Admin can manage every aspect of the system, while the instructors could create creative courses through an interactive curriculum with various types of course files such as audio, video, document and text.
+<a href="https://www.ULEARNpro.com">KIAN</a> is an impressive ACADEMY script which comprises of all the basic features that needed for online learning. This package includes responsive frontend website, instructor/admin dashboard with a backend template. Admin can manage every aspect of the system, while the instructors could create creative courses through an interactive curriculum with various types of course files such as audio, video, document and text.
 
 ```diff
 + Requests: 
@@ -43,13 +43,13 @@ Demo Link : https://www.ULEARNpro.com/demo/
 
 |    Role       |        Email ID        |   Password    |
 | ------------- | ---------------------  | ------------- |
-|    Admin      | admin@ULEARN.com       |    secret     |
-|    Instructor | instructor@ULEARN.com  |    secret     |
-|    Student    | student@ULEARN.com     |    secret     |
+|    Admin      | admin@KIAN.com       |    secret     |
+|    Instructor | instructor@KIAN.com  |    secret     |
+|    Student    | student@KIAN.com     |    secret     |
 
 ## Access ReactJS Page
 
-Login at the following link using the student credentials, username:student@ULEARN.com | password:secret
+Login at the following link using the student credentials, username:student@KIAN.com | password:secret
 
 ```sh
 https://www.ULEARNpro.com/demo/login
@@ -90,7 +90,7 @@ php artisan db:seed
 ```
 
 ## Support
-For contribution and customisation supports, kindly contact us through the Email IDULEARNpro@gmail.com
+For contribution and customisation supports, kindly contact us through the Email IDKIANpro@gmail.com
 
 ## License
-ULEARN is open-source software licensed under the [MIT License](LICENSE).
+KIAN is open-source software licensed under the [MIT License](LICENSE).

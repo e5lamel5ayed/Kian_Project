@@ -50,6 +50,16 @@ class CategoryTableSeeder extends Seeder
             $category->is_active = 1;
             $category->save();
 
+            // <i class="fa-solid fa-crown"></i>
+
+
+            // $category = new Category();
+            // $category->name = 'Crown';
+            // $category->slug = 'crown';
+            // $category->icon_class = 'fa-crown';
+            // $category->is_active = 1;
+            // $category->save();
+
             $category = new Category();
             $category->name = 'Photography';
             $category->slug = 'photography';

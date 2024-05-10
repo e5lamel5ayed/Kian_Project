@@ -1,13 +1,13 @@
 {
-    "name": "ULEARNpro/ULEARN",
+    "name": "KIANpro/KIAN",
     "description": "ACADEMY script built on Laravel 5.8 and React JS 16.4",
     "keywords": ["ACADEMY", "learning-management-system", "laravel", "reactjs"],
     "homepage": "https://www.ULEARNpro.com",
     "license": "MIT",
     "authors": [
         {
-            "name": "Mohamed Yahya",
-            "email": "ULEARNpro@gmail.com"
+            "name": "Eslam Dotsy",
+            "email": "KIANpro@gmail.com"
         }
     ],
     "require": {

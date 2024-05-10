@@ -6,7 +6,7 @@
  * @category  File
  * @package   Blog
  * @author    Mohamed Yahya
- * @copyrightULEARN  
+ * @copyrightKIAN  
  * @license   BSD Licence
  * @link      Link
  */
@@ -30,7 +30,7 @@ use Session;
  * @category  Class
  * @package   Blog
  * @author    Mohamed Yahya
- * @copyrightULEARN
+ * @copyrightKIAN  
  * @license   BSD Licence
  * @link      Link
  */

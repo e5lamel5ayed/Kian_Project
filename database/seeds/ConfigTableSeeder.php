@@ -303,7 +303,7 @@ class ConfigTableSeeder extends Seeder
                 'id'=>15,
                 'code'=>'settingGeneral',
                 'option_key'=>'admin_email',
-                'option_value'=>'admin@ULEARN.com'
+                'option_value'=>'admin@KIAN.com'
                 ] );
                         
             Config::create( [

@@ -321,6 +321,8 @@ code {
 
 .navbar-brand-text {
     margin-left: .429rem;
+    font-size: 28px !important;
+    letter-spacing: 3px !important;
 }
 
 @media (max-width:991px) {

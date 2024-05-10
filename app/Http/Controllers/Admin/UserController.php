@@ -6,7 +6,7 @@
  * @category  File
  * @package   User
  * @author    Mohamed Yahya
- * @copyrightULEARN  
+ * @copyrightKIAN  
  * @license   BSD Licence
  * @link      Link
  */
@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Validator;
  * @category  Class
  * @package   User
  * @author    Mohamed Yahya
- * @copyrightULEARN
+ * @copyrightKIAN
  * @license   BSD Licence
  * @link      Link
  */

@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'ULEARNpro/ULEARN',
+        'name' => 'KIANpro/KIAN',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '3e5aa6ad7ad4a5af21efd306519277505a63c557',
@@ -415,7 +415,7 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'ULEARNpro/ULEARN' => array(
+        'KIANpro/KIAN' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '3e5aa6ad7ad4a5af21efd306519277505a63c557',

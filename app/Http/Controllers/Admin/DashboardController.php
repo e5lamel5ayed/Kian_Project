@@ -6,7 +6,7 @@
  * @category  File
  * @package   Dashboard
  * @author    Mohamed Yahya
- * @copyrightULEARN  
+ * @copyrightKIAN  
  * @license   BSD Licence
  * @link      Link
  */
@@ -29,7 +29,7 @@ use App\Models\Instructor;
  * @category  Class
  * @package   Dashboard
  * @author    Mohamed Yahya
- * @copyrightULEARN
+ * @copyrightKIAN
  * @license   BSD Licence
  * @link      Link
  */

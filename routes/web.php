@@ -24,6 +24,10 @@ Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallba
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('company', 'HomeController@company')->name('company');
+
+
 Route::get('about', 'HomeController@pageAbout')->name('page.about');
 Route::get('contact', 'HomeController@pageContact')->name('page.contact');
 Route::get('instructor/{instructor_slug}', 'InstructorController@instructorView')->name('instructor.view');
@@ -169,6 +173,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('admin/config/save-config', 'Admin\ConfigController@saveConfig')->name('admin.saveConfig');
         Route::get('admin/config/page-home', 'Admin\ConfigController@pageHome')->name('admin.pageHome');
         Route::get('admin/config/page-about', 'Admin\ConfigController@pageAbout')->name('admin.pageAbout');
+        
+
+        // Route::get('admin/config/page-company', 'Admin\ConfigController@pageCompany')->name('admin.pageCompany');
+
+
+
+
         Route::get('admin/config/page-contact', 'Admin\ConfigController@pageContact')->name('admin.pageContact');
 
         Route::get('admin/config/setting-general', 'Admin\ConfigController@settingGeneral')->name('admin.settingGeneral');

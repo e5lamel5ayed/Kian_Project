@@ -241,7 +241,7 @@ nav.secondary-nav ul li a.active{color:#639cd9;font-weight:bold;}
 
 .homepage-slide-blue .searchbox-contrainer{line-height:50px;padding:0 0 0 20px;margin-top:40px;}
 .homepage-slide-blue .searchbox-contrainer .searchbox{width:70%;height:50px;border:none;padding-left:20px;border-radius:2px;}
-.homepage-slide-blue .searchbox-contrainer .searchbox-submit{height:50px;width:80px;font-size:13px;line-height:50px;color:#fff;text-align:center;border-left:1px solid #372b73;background-color:#639cd9;cursor:pointer;border-radius:2px;}
+.homepage-slide-blue .searchbox-contrainer .searchbox-submit{height:50px;width:80px;font-size:13px;line-height:50px;color:#fff;text-align:center;border-left:1px solid #3e8ef7;background-color:#639cd9;cursor:pointer;border-radius:2px;}
 .pos-relative{position:relative;}
 
 .searchbox-submit i{font-size: 20px;}
@@ -370,7 +370,8 @@ footer .c-row{
 }
 #main-footer ul li {
     color: #fff;
-    line-height: 2.1;
+    line-height: 2.0;
+    font-size: 20px;
 }
 #main-footer ul li a{
     color: #fff;

@@ -872,6 +872,7 @@ return array(
  "service_info"			=> "Service Information",  
  "home_page_service"			=> "Home Page Service Content",  
  "home_page_about"			=> "Home Page About Content",  
+ "home_page_company"			=> "Home Page Company Content",  
  "Advertising_Content"			=> "Advertising Content",  
  "Auto_Approval"			=> "Course Auto Approval",  
  "course_pagination"			=> "Course Pagination Records Per Page",  
