@@ -17,13 +17,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/alldata','API\DataController@index');
+// Blogs
+
+Route::get('/allBlogs','API\DataController@index');
 
 Route::get('/showone/{id}','API\DataController@show');
 
+// Categories
+
+Route::get('/allcategory','API\DataController@Category');
+
+Route::get('/Showcategory/{id}','API\DataController@Showcategory');
+
+
+// Courses
 Route::get('/allcourse','API\DataController@Course');
 
 Route::get('/ShowCourse/{id}','API\DataController@ShowCourse');
+
+Route::get('/allcourseFile','API\DataController@CourseFile');
+
+Route::get('/ShowCourseFile/{id}','API\DataController@ShowCourseFile');
 
 
 Route::get('/allinstructor','API\DataController@Instructor');
