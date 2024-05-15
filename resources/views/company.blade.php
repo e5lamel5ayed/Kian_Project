@@ -26,7 +26,7 @@
         <article class="container">
             <div class="row">
                 <div class="col-12">
-                    <h5 class="mt-3 underline-heading">Aout Our Company</h5>
+                    <h5 class="mt-3 underline-heading">About Our Company</h5>
                     <p>Cobem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
                         massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
                         quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.

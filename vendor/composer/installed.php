@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'KIANpro/KIAN',
+        'name' => 'kianpro/kian',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3e5aa6ad7ad4a5af21efd306519277505a63c557',
+        'reference' => '7b07f5e155d804906e987b8a0e133a6dcbb95f6b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -415,10 +415,10 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'KIANpro/KIAN' => array(
+        'kianpro/kian' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3e5aa6ad7ad4a5af21efd306519277505a63c557',
+            'reference' => '7b07f5e155d804906e987b8a0e133a6dcbb95f6b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
