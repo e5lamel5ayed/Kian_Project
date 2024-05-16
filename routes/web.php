@@ -13,6 +13,14 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+
 
 Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
@@ -195,4 +203,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('course-learn/{course_slug}', 'CourseController@courseLearn')->name('course.learn');
     });
     
+});
+
 });

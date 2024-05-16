@@ -24,9 +24,7 @@ if it's not present, don't show loader */
     height: 70px;
 }
 @media  (max-width: 768px) {
-.navbar-default {
-    /*background: #fafafa;*/
-}
+
 }
 .about-ul >li{
     padding-left: 17px;
@@ -76,9 +74,6 @@ if it's not present, don't show loader */
   overflow: hidden;
 }
 
-#logo{
-    /* margin-bottom: 10px; */
-}
 
 .btn-learna{
     display: inline-block;
@@ -1039,3 +1034,21 @@ a.clear-filters,a.clear-filters:hover{
 #my-courses{
     min-height: 192px; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

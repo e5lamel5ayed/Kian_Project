@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Mcamara\\LaravelLocalization' => array($vendorDir . '/mcamara/laravel-localization/src'),
     'Ignited\\LaravelOmnipay' => array($vendorDir . '/ignited/laravel-omnipay/src'),
 );

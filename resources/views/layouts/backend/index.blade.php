@@ -54,8 +54,8 @@
 
         <div class="navbar-header">
             <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
-                data-toggle="menubar">
-                <span class="sr-only">Toggle navigation</span>
+                 data-toggle="menubar">
+                <span class="sr-only">{{ __('language.toggle_navigation') }}</span>
                 <span class="hamburger-bar"></span>
             </button>
             <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-collapse"
@@ -68,11 +68,11 @@
                 font-size: 28px;
                 letter-spacing: 3px;
                  "
-                    class="navbar-brand-text hidden-xs-down"><span style="color: #9685e9; font-weight: bolder;">K</span>IAN</span>
+                    class="navbar-brand-text hidden-xs-down"><span style="color: #9685e9; font-weight: bolder;">{{ __('language.K') }}</span>{{ __('language.IAN') }}</span>
             </div>
             <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
-                <span class="sr-only">Toggle Search</span>
+                <span class="sr-only">{{ __('language.toggle_search') }}</span>
                 <i class="icon wb-search" aria-hidden="true"></i>
             </button>
         </div>
@@ -93,10 +93,10 @@
                         </a>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item" href="{{ url('/') }}" role="menuitem"><i
-                                    class="icon fas fa-home" aria-hidden="true"></i> Home Page</a>
+                                    class="icon fas fa-home" aria-hidden="true"></i> {{ __('language.HomePage') }}</a>
                             <div class="dropdown-divider" role="presentation"></div>
                             <a class="dropdown-item" href="{{ route('logOut') }}" role="menuitem"><i
-                                    class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                                    class="icon wb-power" aria-hidden="true"></i> {{ __('language.LOGOUT') }}</a>
                         </div>
                     </li>
 

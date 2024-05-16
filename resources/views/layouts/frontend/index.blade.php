@@ -23,21 +23,17 @@
 <body>
     <div class="se-pre-con"></div>
     <!-- Header -->
+    <nav class="navbar navbar-default fixed-top ">
+        <div class="row d-flex justify-content-between align-items-center" style="flex-grow: 1;">
 
-    <nav class="navbar navbar-default fixed-top">
-        <div class="row" style="flex-grow: 1;">
-            
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 x" id="logo">
-               
-
+            <div class="col-2 " id="logo">
                 <i class="fa fa-bars d-inline-block d-md-none mobile-nav"></i>
                 <a href="{{ route('home') }}" class="float-xl-right"><img src="{{ asset('frontend/img/logo.png') }}"
                         width="70" height="50" /></a>
             </div>
-            <div class="col-md-3 col-lg-8 col-xl-6 d-none d-md-block mt-auto mb-auto">
-                <div style="margin-right: 12%" class="dropdown float-left">
-                    <span id="dropdownMenuButton" data-toggle="dropdown">Categories &nbsp;<i
-                            class="fa fa-caret-down"></i></span>
+            <div class="col-2 ">
+                <div class="dropdown float-left ">
+                    <span id="dropdownMenuButton" data-toggle="dropdown">{{ __('language.CATEGORIES') }} &nbsp;<i class="fa fa-caret-down"></i></span>
                     <?php
                     $categories = SiteHelpers::active_categories();
                     ?>
@@ -57,23 +53,32 @@
 
             </div>
 
-            <div class=" align col-sm-5 col-md-3 col-lg-2 col-xl-2 d-none d-sm-block">
+            <div class="col-2  ">
                 @if (Auth::check() && !Auth::user()->hasRole('instructor') && !Auth::user()->hasRole('admin'))
                     <span class="become-instructor" href="{{ route('login') }}" data-toggle="modal"
-                        data-target="#myModal">Become Instructor</span>
+                        data-target="#myModal">{{ __('language.Become') }}</span>
                 @endif
             </div>
 
-            <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 mt-auto mb-auto">
+
+
+          
+            <div class="col-6 d-flex justify-content-end">
+                <div class="dropdown mr-5">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                     {{ __('language.LANGUAGES') }}
+                      </a>
+                    
+                      <div class="dropdown-menu">
+                          @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                        </a>
+                        @endforeach
+                      </div>
+                </div>
                 @guest
-                    <div class="d-flex">
-
-
-                        <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a>
-
-
-
-                    </div>
+                <a class="btn btn-learna" href="{{ route('login') }}">{{ __("language.LOGIN") }}</a>
                 @else
                     <div class="dropdown float-xl-left float-sm-right float-right">
                         <span id="dropdownMenuButtonRight" data-toggle="dropdown">{{ Auth::user()->first_name }} &nbsp;<i
@@ -83,16 +88,16 @@
 
                             @if (Auth::user()->hasRole('instructor'))
                                 <a class="dropdown-item" href="{{ route('instructor.dashboard') }}">
-                                    <i class="fa fa-sign-out-alt"></i> Instructor
+                                    <i class="fa fa-sign-out-alt"></i> {{ __('language.INSTRUCTOR') }}
                                 </a>
                             @endif
 
                             <a class="dropdown-item" href="{{ route('my.courses') }}">
-                                <i class="fa fa-sign-out-alt"></i> My Courses
+                                <i class="fa fa-sign-out-alt"></i> {{ __('language.MYCOURSES') }}
                             </a>
 
                             <a class="dropdown-item" href="{{ route('logOut') }}">
-                                <i class="fa fa-sign-out-alt"></i> Logout
+                                <i class="fa fa-sign-out-alt"></i> {{ __('language.LOGOUT') }}
                             </a>
 
                         </div>
@@ -102,11 +107,15 @@
             </div>
         </div>
     </nav>
+   
+    
+    
 
+ 
     <div id="sidebar">
         <ul>
-            <li><a href="javascript:void(0)" class="sidebar-title">Categories</a></li>
-            <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a>
+            <li><a href="javascript:void(0)" class="sidebar-title">{{ __('language.CATEGORIES') }}</a></li>
+            <a class="btn btn-learna" href="{{ route('login') }}">{{ __("language.LOGIN") }}</a>
             @foreach ($categories as $category)
                 <li>
                     <a href="{{ $category->slug }}">
@@ -125,25 +134,25 @@
         <div class="row m-0">
             <div class="col-lg-2 col-md-4 col-sm-4 col-6 mt-3">
                 <ul>
-                    <li class="mb-1"><b>Quick Links</b></li>
-                    <li><a href="{{ route('home') }}">Home Page</a></li>
-                    <li><a href="{{ route('course.list') }}">Courses List</a></li>
-                    <li><a href="{{ route('instructor.list') }}">Instructors List</a></li>
-                    <li><a href="{{ route('blogs') }}">Blogs List</a></li>
+                    <li class="mb-1"><b>{{ __('language.QuickLinks') }}</b></li>
+                    <li><a href="{{ route('home') }}">{{ __('language.HomePage') }}</a></li>
+                    <li><a href="{{ route('course.list') }}">{{ __('language.CoursesList') }}</a></li>
+                    <li><a href="{{ route('instructor.list') }}">{{ __('language.InstructorsList') }}</a></li>
+                    <li><a href="{{ route('blogs') }}">{{ __('language.BlogsList') }}</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-6 mt-3">
                 <ul>
                     <li class="mb-1"><b>Resources</b></li>
-                    <li><a href="{{ route('page.about') }}">About Us</a></li>
-                    <li><a href="{{ route('page.contact') }}">Contact Us</a></li>
-                    <li><a href="{{ route('register') }}">Register Page</a></li>
-                    <li><a href="{{ route('login') }}">Login Page</a></li>
+                    <li><a href="{{ route('page.about') }}">{{ __('language.AboutUs')  }}</a></li>
+                    <li><a href="{{ route('page.contact') }}">{{ __('language.ContactUs') }}</a></li>
+                    <li><a href="{{ route('register') }}">{{ __('language.RegisterPage') }}</a></li>
+                    <li><a href="{{ route('login') }}">{{ __('language.LoginPage') }}</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 mt-3 d-none d-sm-block">
                 <ul>
-                    <li class="mb-1"><b>Top Categories</b></li>
+                    <li class="mb-1"><b>{{ __('language.TopCategories') }}</b></li>
                     @foreach ($categories as $category)
                         @if ($loop->iteration <= 4)
                             <li><a
@@ -156,10 +165,10 @@
             </div>
             <div style="  margin-bottom: 24px;" class="col-lg-6 col-md-12 col-sm-12 text-center mt-4">
                 {{-- <img src="{{ asset('frontend/img/logo_footer.png') }}" class="img-fluid" width="210" height="48"> --}}
-                <h2 style="color: #fff; font-size: 8rem"><span style="color: #9685e9">K</span>IAN</h2>
+                <h2 style="color: #fff; font-size: 8rem"><span style="color: #9685e9">{{ __('language.K') }}</span>{{ __('language.IAN') }}</h2>
                 {{-- <br> --}}
                 <span id="c-copyright">
-                    Copyright © 2024,KIAN. All rights reserved.
+                   {{__('language.Copyrigh')}}
                 </span>
             </div>
         </div>
@@ -171,7 +180,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bi-header ">
-                    <h5 class="col-12 modal-title text-center bi-header-seperator-head">Become an Instructor</h5>
+                    <h5 class="col-12 modal-title text-center bi-header-seperator-head">{{ __('language.Become') }}</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -183,42 +192,42 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-6">
-                                        <label>First Name</label>
+                                        <label>{{ __('language.FirstName') }}</label>
                                         <input type="text" class="form-control form-control-sm"
                                             placeholder="First Name" name="first_name">
                                     </div>
                                     <div class="col-6">
-                                        <label>Last Name</label>
+                                        <label>{{ __('language.LastName') }}</label>
                                         <input type="text" class="form-control form-control-sm"
                                             placeholder="Last Name" name="last_name">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Contact Email</label>
+                                <label>{{ __('language.ContactEmail') }}</label>
                                 <input type="text" class="form-control form-control-sm"
                                     placeholder="Contact Email" name="contact_email">
                             </div>
 
                             <div class="form-group">
-                                <label>Telephone</label>
+                                <label>{{ __("language.Telephone") }}</label>
                                 <input type="text" class="form-control form-control-sm" placeholder="Telephone"
                                     name="telephone">
                             </div>
 
                             <div class="form-group">
-                                <label>Paypal ID</label>
+                                <label>{{ __('language.PaypalID') }}</label>
                                 <input type="text" class="form-control form-control-sm" placeholder="Paypal ID"
                                     name="paypal_id">
                             </div>
 
                             <div class="form-group">
-                                <label>Biography</label>
+                                <label>{{ __('language.Biography') }}</label>
                                 <textarea class="form-control form-control" placeholder="Biography" name="biography"></textarea>
                             </div>
 
                             <div class="form-group mt-4">
-                                <button type="submit" class="btn btn-lg btn-block login-page-button">Submit</button>
+                                <button type="submit" class="btn btn-lg btn-block login-page-button">{{ __('language.Submit') }}</button>
                             </div>
 
                         </div>

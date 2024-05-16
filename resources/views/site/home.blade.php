@@ -4,13 +4,13 @@
     <div class="container-fluid p-0 home-content">
         <!-- banner start -->
         <div class="homepage-slide-blue">
-            <h1>{{ Sitehelpers::get_option('pageHome', 'banner_title') }}</h1>
-            <span class="title-sub-header">{{ Sitehelpers::get_option('pageHome', 'banner_text') }}</span>
+            <h1>{{ __('language.banner_title') }}</h1>
+            <span class="title-sub-header">{{ __('language.banner_text') }}</span>
             <form method="GET" action="{{ route('course.list') }}">
                 <div class="searchbox-contrainer col-md-6 mx-auto">
                     <input name="keyword" type="text" class="searchbox d-none d-sm-inline-block"
-                        placeholder="Search for courses by course titles"><input name="keyword" type="text"
-                        class="searchbox d-inline-block d-sm-none" placeholder="Search for courses"><button type="submit"
+                        placeholder={{ __('language.Search') }}><input name="keyword" type="text"
+                         class="searchbox d-inline-block d-sm-none" placeholder="Search for courses"><button type="submit"
                         class="searchbox-submit"><i class="fa fa-search"></i></button>
                 </div>
             </form>
@@ -20,7 +20,7 @@
              color: #183153;
              margin-top: 2.5%;
              "
-                class="btn btn-learna" href="{{ route('company') }}">KIAN COMPANY <img
+                class="btn btn-learna" href="{{ route('company') }}">{{ __('language.KIANCOMPANY') }} <img
                     style="
                      width: 17px;
                      height: 22px;
@@ -108,9 +108,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6">
-                        <h3 class="dblock-heading">{{ Sitehelpers::get_option('pageHome', 'learn_block_title') }}</h3>
-                        <p class="dblock-text">{!! Sitehelpers::get_option('pageHome', 'learn_block_text') !!}</p>
-                        <a href="{{ route('course.list') }}" class="btn btn-ULEARN">Explore Courses</a>
+                        <h3 class="dblock-heading">{{ __('language.learn_block_title') }}</h3>
+                        <p class="dblock-text">{{ __('language.learn_block_text') }}</p>
+                        <a href="{{ route('course.list') }}" class="btn btn-ULEARN">{{ __('language.ExploreCourses') }}</a>
                     </div>
 
                     <div class="col-xl-6 col-lg-6 col-md-6 vertical-align">
@@ -126,8 +126,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center seperator-head mt-3">
-                        <h3>Our Instructors</h3>
-                        <p class="mt-3">{{ Sitehelpers::get_option('pageHome', 'instructor_text') }}</p>
+                        <h3>{{ __('language.OurInstructors') }}</h3>
+                        <p class="mt-3">{{ __('language.instructor_text') }}</p>
                     </div>
                 </div>
 
