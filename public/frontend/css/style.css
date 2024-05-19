@@ -642,7 +642,17 @@ a.social-btn{
 #logo img{
     margin-bottom: 5px;
 }
+
+
+.lang_edit{
+display: none !important;
 }
+
+}
+
+
+
+
 /*accordian*/
 .card{
     border-radius: 0;

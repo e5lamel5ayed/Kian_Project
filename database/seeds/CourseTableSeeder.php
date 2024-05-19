@@ -7,6 +7,7 @@ use App\Models\CourseRating;
 use App\Models\CourseTaken;
 use App\Models\Credit;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\DB; // Import the DB facade
 
 class CourseTableSeeder extends Seeder
 {

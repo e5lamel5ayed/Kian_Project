@@ -78,7 +78,7 @@
                         <h6 class="text-center mt-3">SUBSCRIBE TOULEARN BLOG</h6>
 
                         <div class="pl-3 pr-2">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+                            <p>But in order that you may see whence all this born error is the pleasure and pain of those who praise it, I will open the whole matter, and the very things which were said by that discoverer of truth and as it were the architect of a happy life.</p>
 
                             <input type="text" class="form-control form-control-sm" placeholder="abc@xyz.com">
 

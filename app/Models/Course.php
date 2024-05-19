@@ -8,11 +8,11 @@ use SiteHelpers;
 use Illuminate\Support\Facades\DB; // Import the DB facade
 use Illuminate\Support\Facades\Auth;
 
-
 class Course extends Model
 {
     protected $table = 'courses';
     protected $guarded = array();
+
 
     public static function is_subscribed($course_slug, $user_id)
     {

@@ -3,8 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
-use Request;
+// use Auth;
+// use Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+
 
 class CheckRole
 {
@@ -25,9 +28,9 @@ class CheckRole
                 return $next($request);
         }
         
-        if (Request::isMethod('get')) {
+        if (request::isMethod('get')) {
             abort(401);
-        } else if(Request::isMethod('post')) {
+        } else if(request::isMethod('post')) {
             return redirect('/');
         }
 

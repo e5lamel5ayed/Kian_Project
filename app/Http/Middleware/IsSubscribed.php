@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
-use Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request; // تغيير هنا
 use App\Models\Course;
 
 class IsSubscribed
@@ -27,12 +27,10 @@ class IsSubscribed
         if($is_subscribed)
                 return $next($request);
 
-        if (Request::isMethod('get')) {
+        if ($request->isMethod('get')) { // تغيير هنا
             abort(401);
-        } else if(Request::isMethod('post')) {
+        } else if($request->isMethod('post')) { // تغيير هنا
             return redirect('/');
         }
-
-        
     }
 }

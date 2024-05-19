@@ -23,12 +23,12 @@ class BlogTableSeeder extends Seeder
 
                             <ul class="ul-no-padding about-ul mb-3">
                                 <li>Commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Commodo ligula eget dolor. Aenean massa. Port sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                                <li>Dum sociis natoque penatibus et magnis dis parturient montes</li>
+                                <li>While the mountains will give birth to their allies and born with great strength and strength</li>
                                 <li>Nascetur ridiculus mus, Nulla consequat massa quis enim, Cum sociis natoque penatibus et magnis dis parturient montes</li>
                                 <li>Commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                                <li>Nascetur ridiculus mus, Nulla consequat massa quis enim  </li>
-                                <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus, Nulla consequat massa quis enim </li>
-                                <li>Consectetuer adipiscing elit. Aenean commodo ligula eget dolor</li>
+                                <li>A funny mouse will be born, There is no consequence for anyone </li>
+                                <li>Cum sociis natoque penatibus et magnis dis parturient montes, A funny mouse will be born, There is no consequence for anyone</li>
+                                <li>Hydrogen storage research. Aeneans good fortune needs pain</li>
                                 
                             </ul>
 

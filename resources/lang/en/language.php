@@ -4,7 +4,7 @@
 return [
 
 //  index.blade.php front
-"LANGUAGES"=>" Languages",
+"LANGUAGES"=>" Lang",
 "LOGOUT"=>"Logout",
 "MYCOURSES"=>" My Courses",
 "INSTRUCTOR"=>"Instructor",
@@ -36,7 +36,7 @@ return [
 "banner_text"=>"Learn every topic. On time. Everytime.",
 "instructor_text"=>" 'We have more than 3,250 skilled & professional Instructors",
 "learn_block_title"=>"Learn every topic, everytime",
-"learn_block_text"=>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+"learn_block_text"=>"But in order that you may see whence all this born error of those who accuse pleasure and praise pain, I will open the whole matter, and explain the very things which were said by that discoverer of truth and as it were the architect of a happy life. For no one despises or hates or runs away from pleasure because it is pleasure, but because great pains result to those who do not know how to follow pleasure with reason. Nor, moreover, is there anyone who wants to pursue pain because it is pain, to obtain it.",
 
 "LatestCourses"=>"Latest Courses ", 
 "FreeCourses"=>"Free Courses ", 

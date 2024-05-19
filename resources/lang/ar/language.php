@@ -3,7 +3,7 @@
 
 return [
 
-    "LANGUAGES"=>"اللغات",
+    "LANGUAGES"=>"اللغه",
     "LOGOUT"=>"تسجيل الخروج",
     "MYCOURSES"=>"دوراتي",
     "INSTRUCTOR"=>"المدرب",
@@ -13,7 +13,7 @@ return [
     "CoursesList"=>"قائمة الدورات",
     "InstructorsList"=>"قائمة المدربين",
     "BlogsList"=>"قائمة المدونات",
-    "Resources"=>"الموارد",
+    "Resources"=>"المصادر",
     "AboutUs"=>"من نحن",
     "ContactUs"=>"اتصل بنا",
     "RegisterPage"=>"صفحة التسجيل",

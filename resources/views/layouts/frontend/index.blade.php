@@ -23,17 +23,20 @@
 <body>
     <div class="se-pre-con"></div>
     <!-- Header -->
-    <nav class="navbar navbar-default fixed-top ">
-        <div class="row d-flex justify-content-between align-items-center" style="flex-grow: 1;">
+    <nav class="navbar navbar-default fixed-top">
+        <div class="row" style="flex-grow: 1;">
+            
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 x" id="logo">
+               
 
-            <div class="col-2 " id="logo">
                 <i class="fa fa-bars d-inline-block d-md-none mobile-nav"></i>
                 <a href="{{ route('home') }}" class="float-xl-right"><img src="{{ asset('frontend/img/logo.png') }}"
                         width="70" height="50" /></a>
             </div>
-            <div class="col-2 ">
-                <div class="dropdown float-left ">
-                    <span id="dropdownMenuButton" data-toggle="dropdown">{{ __('language.CATEGORIES') }} &nbsp;<i class="fa fa-caret-down"></i></span>
+            <div class="col-md-3 col-lg-8 col-xl-6 d-none d-md-block mt-auto mb-auto">
+                <div style="margin-right: 12%" class="dropdown float-left">
+                    <span id="dropdownMenuButton" data-toggle="dropdown">Categories &nbsp;<i
+                            class="fa fa-caret-down"></i></span>
                     <?php
                     $categories = SiteHelpers::active_categories();
                     ?>
@@ -53,57 +56,88 @@
 
             </div>
 
-            <div class="col-2  ">
+            <div class=" align col-sm-5 col-md-3 col-lg-2 col-xl-2 d-none d-sm-block">
                 @if (Auth::check() && !Auth::user()->hasRole('instructor') && !Auth::user()->hasRole('admin'))
                     <span class="become-instructor" href="{{ route('login') }}" data-toggle="modal"
-                        data-target="#myModal">{{ __('language.Become') }}</span>
+                        data-target="#myModal">Become Instructor</span>
                 @endif
             </div>
 
-
-
-          
-            <div class="col-6 d-flex justify-content-end">
-                <div class="dropdown mr-5">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                     {{ __('language.LANGUAGES') }}
-                      </a>
-                    
-                      <div class="dropdown-menu">
-                          @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            {{ $properties['native'] }}
-                        </a>
-                        @endforeach
-                      </div>
-                </div>
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 mt-auto mb-auto">
                 @guest
-                <a class="btn btn-learna" href="{{ route('login') }}">{{ __("language.LOGIN") }}</a>
+                
+                    <div style="justify-content: end;" class="d-flex">
+
+                        
+
+                        <a class="btn btn-learna" href="{{ route('login') }}">Login / Sign Up</a>
+
+
+                        {{-- ======================= --}}
+
+                        <div style="margin-left: 10px;" class="d-flex lang_edit dropdown mr-5">
+                            <a
+                            style=" background-color: #372b73; margin-left: 20px;"
+                            class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                             {{ __('language.LANGUAGES') }}
+                              </a>
+                            
+                              <div class="dropdown-menu">
+                                  @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                                @endforeach
+                              </div>
+                        </div>
+
+                    </div>
+
                 @else
-                    <div class="dropdown float-xl-left float-sm-right float-right">
+                
+                <div class=" dropdown float-xl-left float-sm-right float-right">
+                    
+            
                         <span id="dropdownMenuButtonRight" data-toggle="dropdown">{{ Auth::user()->first_name }} &nbsp;<i
                                 class="fa fa-caret-down"></i></span>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonRight">
+                        <div class="mr-5 dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonRight">
 
                             @if (Auth::user()->hasRole('instructor'))
                                 <a class="dropdown-item" href="{{ route('instructor.dashboard') }}">
-                                    <i class="fa fa-sign-out-alt"></i> {{ __('language.INSTRUCTOR') }}
+                                    <i class="fa fa-sign-out-alt"></i> Instructor
                                 </a>
                             @endif
 
                             <a class="dropdown-item" href="{{ route('my.courses') }}">
-                                <i class="fa fa-sign-out-alt"></i> {{ __('language.MYCOURSES') }}
+                                <i class="fa fa-sign-out-alt"></i> My Courses
                             </a>
 
                             <a class="dropdown-item" href="{{ route('logOut') }}">
-                                <i class="fa fa-sign-out-alt"></i> {{ __('language.LOGOUT') }}
+                                <i class="fa fa-sign-out-alt"></i> Logout
                             </a>
 
                         </div>
                     </div>
 
+                    <div style="margin-left: 10px;" class="d-flex lang_edit dropdown mr-5">
+                        <a
+                        style=" background-color: #372b73 ; margin-left: 20px;"
+                        class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                         {{ __('language.LANGUAGES') }}
+                          </a>
+                        
+                          <div class="dropdown-menu">
+                              @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                            @endforeach
+                          </div>
+                    </div>
                 @endguest
+            
+            
             </div>
         </div>
     </nav>
@@ -114,8 +148,9 @@
  
     <div id="sidebar">
         <ul>
+            
             <li><a href="javascript:void(0)" class="sidebar-title">{{ __('language.CATEGORIES') }}</a></li>
-            <a class="btn btn-learna" href="{{ route('login') }}">{{ __("language.LOGIN") }}</a>
+
             @foreach ($categories as $category)
                 <li>
                     <a href="{{ $category->slug }}">
@@ -125,6 +160,30 @@
 
                 </li>
             @endforeach
+
+
+            <a class="btn btn-learna" href="{{ route('login') }}">{{ __("language.LOGIN") }}</a>
+
+
+            {{-- ===================== --}}
+            <div class=" dropdown mr-5 mt-2">
+                <a
+                style=" background-color: #372b73;"
+                class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                 {{ __('language.LANGUAGES') }}
+                  </a>
+                
+                  <div class="dropdown-menu">
+                      @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}
+                    </a>
+                    @endforeach
+                  </div>
+            </div>
+
+
+
         </ul>
     </div>
     @yield('content')
@@ -143,7 +202,7 @@
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-6 mt-3">
                 <ul>
-                    <li class="mb-1"><b>Resources</b></li>
+                    <li class="mb-1"><b>{{ __('language.Resources') }}</b></li>
                     <li><a href="{{ route('page.about') }}">{{ __('language.AboutUs')  }}</a></li>
                     <li><a href="{{ route('page.contact') }}">{{ __('language.ContactUs') }}</a></li>
                     <li><a href="{{ route('register') }}">{{ __('language.RegisterPage') }}</a></li>
