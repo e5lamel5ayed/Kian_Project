@@ -3,7 +3,7 @@
         'name' => 'kianpro/kian',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '127eed1007df40af25ef517ddf68b0ee0c663705',
+        'reference' => '1b17f92a5de45294dd493086b3b550a2cce3bc05',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -418,7 +418,7 @@
         'kianpro/kian' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '127eed1007df40af25ef517ddf68b0ee0c663705',
+            'reference' => '1b17f92a5de45294dd493086b3b550a2cce3bc05',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

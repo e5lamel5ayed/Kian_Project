@@ -17,11 +17,15 @@ class Course extends Model
     public static function is_subscribed($course_slug, $user_id)
     {
         $course = DB::table('courses')->where('course_slug', $course_slug)->first();
-        return DB::table('course_taken')
-          ->where('course_taken.course_id',$course->id)
-          ->where('course_taken.user_id',$user_id)
-          ->first();
+        if ($course) {
+            return DB::table('course_taken')
+              ->where('course_taken.course_id', $course->id) // using $course->id instead of $course_id
+              ->where('course_taken.user_id', $user_id)
+              ->first();
+        }
+        return null; // or handle the case where the course is not found
     }
+    
 
     public function students_count($course_id)
     {
